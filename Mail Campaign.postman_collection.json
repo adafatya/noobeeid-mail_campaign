@@ -1,0 +1,270 @@
+{
+	"info": {
+		"_postman_id": "0375a85c-f291-4d2d-9175-b031a9cda548",
+		"name": "Mail Campaign",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "38133618"
+	},
+	"item": [
+		{
+			"name": "mail service send",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"from\": \"Adafatya <aufaditya1895@gmail.com>\",\r\n    \"to\": [\r\n        \"darilhiro@gmail.com\"\r\n    ],\r\n    \"subject\": \"Test Email\",\r\n    \"message\": \"test kirim email\",\r\n    \"type\": \"text\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8001/send"
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"from\": \"Adafatya <aufaditya1895@gmail.com>\",\r\n    \"to\": [\r\n        \"darilhiro@gmail.com\"\r\n    ],\r\n    \"subject\": \"Test Email\",\r\n    \"message\": \"test kirim email\",\r\n    \"type\": \"text\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8001/send"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 04 Mar 2025 09:06:01 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "51"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Berhasil kirim email!\",\n    \"success\": true\n}"
+				},
+				{
+					"name": "400",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"from\": \"Adafatya <aufaditya1895@gmail.com>\",\r\n    \"to\": \"darilhiro@gmail.com\",\r\n    \"subject\": \"Test Email\",\r\n    \"message\": \"test kirim email\",\r\n    \"type\": \"text\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8001/send"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 04 Mar 2025 09:12:10 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "161"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"json: cannot unmarshal string into Go struct field MailRequest.to of type []string\",\n    \"message\": \"Terdapat kesalahan pada badan request\",\n    \"success\": false\n}"
+				},
+				{
+					"name": "500",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"from\": \"Adafatya\",\r\n    \"to\": [\r\n        \"darilhiro@gmail.com\"\r\n    ],\r\n    \"subject\": \"Test Email\",\r\n    \"message\": \"test kirim email\",\r\n    \"type\": \"text\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8001/send"
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 04 Mar 2025 09:11:35 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "183"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"gomail: could not send email 1: gomail: invalid address \\\"Adafatya\\\": mail: missing '@' or angle-addr\",\n    \"message\": \"Terdapat kesalahan saat pengiriman email\",\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "app service send",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"from\": \"m.aufaditya@gmail.com\",\r\n    \"to\": [\r\n        \"darilhiro@gmail.com\"\r\n    ],\r\n    \"subject\": \"Test Email\",\r\n    \"message\": \"test kirim email\",\r\n    \"type\": \"text\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8000/send"
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"from\": \"Adafatya <aufaditya1895@gmail.com>\",\r\n    \"to\": [\r\n        \"darilhiro@gmail.com\"\r\n    ],\r\n    \"subject\": \"Test Email\",\r\n    \"message\": \"test kirim email\",\r\n    \"type\": \"text\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8001/send"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 04 Mar 2025 09:06:01 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "51"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Berhasil kirim email!\",\n    \"success\": true\n}"
+				},
+				{
+					"name": "400",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"from\": \"Adafatya <aufaditya1895@gmail.com>\",\r\n    \"to\": \"darilhiro@gmail.com\",\r\n    \"subject\": \"Test Email\",\r\n    \"message\": \"test kirim email\",\r\n    \"type\": \"text\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8001/send"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 04 Mar 2025 09:12:10 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "161"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"json: cannot unmarshal string into Go struct field MailRequest.to of type []string\",\n    \"message\": \"Terdapat kesalahan pada badan request\",\n    \"success\": false\n}"
+				},
+				{
+					"name": "500",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"from\": \"Adafatya\",\r\n    \"to\": [\r\n        \"darilhiro@gmail.com\"\r\n    ],\r\n    \"subject\": \"Test Email\",\r\n    \"message\": \"test kirim email\",\r\n    \"type\": \"text\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8000/send"
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 04 Mar 2025 10:13:34 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "183"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Terdapat kesalahan saat pengiriman email\",\n    \"error\": \"gomail: could not send email 1: gomail: invalid address \\\"Adafatya\\\": mail: missing '@' or angle-addr\"\n}"
+				}
+			]
+		}
+	]
+}
